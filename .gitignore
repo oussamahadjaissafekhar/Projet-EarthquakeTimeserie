@@ -1,0 +1,16 @@
+# Artifacts
+.venv/
+node_modules/
+.next/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Données (Trop lourdes pour GitHub)
+backend/data/**
+
+# Sauf les .gitkeep pour garder la structure
+!**/data/**/.gitkeep
+
+# Fichiers parquet
+*.parquet
