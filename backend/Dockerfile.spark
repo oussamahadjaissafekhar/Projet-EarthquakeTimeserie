@@ -1,0 +1,18 @@
+FROM bitnamilegacy/spark:3.5.5
+
+USER root
+# Installation de pip et de la bibliothèque obspy
+RUN apt-get update && apt-get install -y python3-pip && \
+    pip3 install obspy --no-cache-dir
+
+# Fix pour l'erreur "basedir" et l'erreur d'identité Hadoop "invalid null input: name"
+ENV HOME=/tmp
+ENV IVY_HOME=/tmp/.ivy2
+ENV _JAVA_OPTIONS="-Duser.home=/tmp"
+ENV HADOOP_USER_NAME=spark
+
+# Ajouter explicitement l'utilisateur 1001 pour éviter le crash UnixPrincipal dans Java
+RUN echo "spark:x:1001:1001:Spark User:/tmp:/bin/bash" >> /etc/passwd
+
+# Rebasculer vers l'utilisateur non root de l'image bitnami
+USER 1001
