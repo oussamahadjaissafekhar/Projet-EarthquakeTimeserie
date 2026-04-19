@@ -28,10 +28,13 @@ L'objectif est de transformer des fichiers sismiques bruts (signaux complexes et
 ### 2. Lancement des Services
 ```bash
 # 1. Cloner le repository
-git clone <votre-url-repo>
-cd seismic-project
+git clone https://github.com/oussamahadjaissafekhar/Projet-EarthquakeTimeserie.git
+cd Projet-EarthquakeTimeserie
 
-# 2. Lancer l'infrastructure (Spark, MinIO, MySQL)
+# 2. Installer les dépendances Python
+pip install -r requirements.txt
+
+# 3. Lancer l'infrastructure (Spark, MinIO, MySQL)
 cd backend
 docker-compose up -d
 

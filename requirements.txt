@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+duckdb
+numpy
+pandas
+scikit-learn
+obspy
+pyspark
+requests
+python-multipart
